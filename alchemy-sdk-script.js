@@ -7,21 +7,19 @@ import * as discord from "discord.js";
 
 const config = {
   apiKey: process.env.ALCHEMY_API_KEY,
-  network: Network.ETH_MAINNET,
+  network: Network.MATIC_MAINNET,
 };
 
 const alchemy = new Alchemy(config);
 
 const main = async () => {
   // Wallet address
-  const address = "sn4ke.eth"; //sn4ke.eth 0x94be0efdc095191070d360a5AA068764810a8da5
-  console.log(address)
-  console.log(process.env.ALCHEMY_API_KEY)
-  let contract = ["0x659a4bdaaacc62d2bd9cb18225d9c89b5b697a5a"]; //Recordar Testear si es Case Sensitive
-  console.log('Contrato a filtrar:', contract[0]);
-
+  const address = "0x94be0efdc095191070d360a5AA068764810a8da5"; //sn4ke.eth 0x94be0efdc095191070d360a5AA068764810a8da5
+  let contract = ["0x9d3aCa725a289c6E798355592Cd3dd5E43fA14A5"];  //Recordar Testear si es Case Sensitive
+  const options = {contractAddresses: contract };
+  
   // Get all NFTs
-  const nfts = await alchemy.nft.getNftsForOwner(address, contract );
+  const nfts = await alchemy.nft.getNftsForOwner(address, options );
 
   // Parse output
   const numNfts = nfts["totalCount"];

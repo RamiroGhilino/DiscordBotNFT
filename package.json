@@ -20,6 +20,7 @@
   "type": "module",
   "dependencies": {
     "alchemy-sdk": "^2.0.2",
+    "discord.js": "^14.2.0",
     "dotenv": "^16.0.1"
   }
 }
